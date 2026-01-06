@@ -5,7 +5,7 @@
       "name": "Classic Cotton T-Shirt",
       "price": 24.99,
       "description": "Comfortable everyday cotton t-shirt available in multiple colors",
-      "image": "https://via.placeholder.com/300x200?text=T-Shirt",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%234A90E2' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ET-Shirt%3C/text%3E%3C/svg%3E",
       "stock": 50,
       "category": "Clothing"
     },
@@ -14,7 +14,7 @@
       "name": "Denim Jeans",
       "price": 59.99,
       "description": "Classic blue denim jeans with perfect fit",
-      "image": "https://via.placeholder.com/300x200?text=Jeans",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%231F4B8C' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EDenim+Jeans%3C/text%3E%3C/svg%3E",
       "stock": 35,
       "category": "Clothing"
     },
@@ -23,7 +23,7 @@
       "name": "Winter Jacket",
       "price": 129.99,
       "description": "Warm and stylish winter jacket with insulation",
-      "image": "https://via.placeholder.com/300x200?text=Jacket",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23333333' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EWinter+Jacket%3C/text%3E%3C/svg%3E",
       "stock": 20,
       "category": "Clothing"
     },
@@ -32,7 +32,7 @@
       "name": "Sports Running Shoes",
       "price": 89.99,
       "description": "Lightweight running shoes with cushioning for comfort",
-      "image": "https://via.placeholder.com/300x200?text=Running+Shoes",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23FF6B35' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESports+Running+Shoes%3C/text%3E%3C/svg%3E",
       "stock": 25,
       "category": "Footwear"
     },
@@ -41,7 +41,7 @@
       "name": "Casual Sneakers",
       "price": 74.99,
       "description": "Trendy casual sneakers perfect for everyday wear",
-      "image": "https://via.placeholder.com/300x200?text=Sneakers",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%234ECDC4' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECasual+Sneakers%3C/text%3E%3C/svg%3E",
       "stock": 40,
       "category": "Footwear"
     },
@@ -50,7 +50,7 @@
       "name": "Formal Dress Shoes",
       "price": 119.99,
       "description": "Elegant leather dress shoes for professional occasions",
-      "image": "https://via.placeholder.com/300x200?text=Dress+Shoes",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23654321' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFormal+Dress+Shoes%3C/text%3E%3C/svg%3E",
       "stock": 15,
       "category": "Footwear"
     },
@@ -59,7 +59,7 @@
       "name": "Cotton Hoodie",
       "price": 54.99,
       "description": "Cozy hooded sweatshirt in soft cotton blend",
-      "image": "https://via.placeholder.com/300x200?text=Hoodie",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%236366F1' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECotton+Hoodie%3C/text%3E%3C/svg%3E",
       "stock": 30,
       "category": "Clothing"
     },
@@ -68,7 +68,7 @@
       "name": "Comfortable Loafers",
       "price": 99.99,
       "description": "Slip-on loafers with premium leather construction",
-      "image": "https://via.placeholder.com/300x200?text=Loafers",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%238B7355' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EComfortable+Loafers%3C/text%3E%3C/svg%3E",
       "stock": 18,
       "category": "Footwear"
     },
@@ -77,7 +77,7 @@
       "name": "Athletic Shorts",
       "price": 34.99,
       "description": "Lightweight athletic shorts for workouts and casual wear",
-      "image": "https://via.placeholder.com/300x200?text=Shorts",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23EC4899' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EAthletic+Shorts%3C/text%3E%3C/svg%3E",
       "stock": 45,
       "category": "Clothing"
     },
@@ -86,9 +86,189 @@
       "name": "Hiking Boots",
       "price": 139.99,
       "description": "Durable waterproof hiking boots for outdoor adventures",
-      "image": "https://via.placeholder.com/300x200?text=Hiking+Boots",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%238B5A3C' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EHiking+Boots%3C/text%3E%3C/svg%3E",
       "stock": 12,
       "category": "Footwear"
+    },
+    {
+      "id": 11,
+      "name": "Summer Linen Shirt",
+      "price": 44.99,
+      "description": "Breathable linen shirt perfect for warm weather",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23F97316' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESummer+Linen+Shirt%3C/text%3E%3C/svg%3E",
+      "stock": 28,
+      "category": "Clothing"
+    },
+    {
+      "id": 12,
+      "name": "Cargo Pants",
+      "price": 69.99,
+      "description": "Durable cargo pants with multiple pockets",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%236B7280' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECargo+Pants%3C/text%3E%3C/svg%3E",
+      "stock": 22,
+      "category": "Clothing"
+    },
+    {
+      "id": 13,
+      "name": "Leather Belt",
+      "price": 39.99,
+      "description": "Premium leather belt with buckle",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23A16207' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ELeather+Belt%3C/text%3E%3C/svg%3E",
+      "stock": 60,
+      "category": "Clothing"
+    },
+    {
+      "id": 14,
+      "name": "Chelsea Boots",
+      "price": 124.99,
+      "description": "Stylish leather Chelsea boots",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23520000' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EChelsea+Boots%3C/text%3E%3C/svg%3E",
+      "stock": 16,
+      "category": "Footwear"
+    },
+    {
+      "id": 15,
+      "name": "Running Socks Pack",
+      "price": 19.99,
+      "description": "Pack of 5 pairs of moisture-wicking running socks",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23818CF8' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ERunning+Socks+Pack%3C/text%3E%3C/svg%3E",
+      "stock": 100,
+      "category": "Clothing"
+    },
+    {
+      "id": 16,
+      "name": "Yoga Pants",
+      "price": 59.99,
+      "description": "High-waist yoga pants with comfortable stretch",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%2306B6D4' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EYoga+Pants%3C/text%3E%3C/svg%3E",
+      "stock": 38,
+      "category": "Clothing"
+    },
+    {
+      "id": 17,
+      "name": "Slip-on Sandals",
+      "price": 34.99,
+      "description": "Comfortable slip-on sandals for casual wear",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23F4A460' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESlip-on+Sandals%3C/text%3E%3C/svg%3E",
+      "stock": 55,
+      "category": "Footwear"
+    },
+    {
+      "id": 18,
+      "name": "Polo Shirt",
+      "price": 49.99,
+      "description": "Classic polo shirt with collar and buttons",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%2314B8A6' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPolo+Shirt%3C/text%3E%3C/svg%3E",
+      "stock": 42,
+      "category": "Clothing"
+    },
+    {
+      "id": 19,
+      "name": "Flip Flops",
+      "price": 14.99,
+      "description": "Lightweight flip flops for beach and pool",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23FBD34D' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EFlip+Flops%3C/text%3E%3C/svg%3E",
+      "stock": 80,
+      "category": "Footwear"
+    },
+    {
+      "id": 20,
+      "name": "Cardigan Sweater",
+      "price": 64.99,
+      "description": "Cozy cardigan sweater for layering",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23A78BFA' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECardigan+Sweater%3C/text%3E%3C/svg%3E",
+      "stock": 25,
+      "category": "Clothing"
+    },
+    {
+      "id": 21,
+      "name": "Basketball Shoes",
+      "price": 109.99,
+      "description": "High-top basketball shoes with ankle support",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23DC2626' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EBasketball+Shoes%3C/text%3E%3C/svg%3E",
+      "stock": 19,
+      "category": "Footwear"
+    },
+    {
+      "id": 22,
+      "name": "Crew Neck Sweatshirt",
+      "price": 54.99,
+      "description": "Classic crew neck sweatshirt in various colors",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23334155' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECrew+Neck+Sweatshirt%3C/text%3E%3C/svg%3E",
+      "stock": 33,
+      "category": "Clothing"
+    },
+    {
+      "id": 23,
+      "name": "Oxfords Dress Shoes",
+      "price": 134.99,
+      "description": "Traditional oxford leather dress shoes",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%231E1B4B' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EOxfords+Dress+Shoes%3C/text%3E%3C/svg%3E",
+      "stock": 14,
+      "category": "Footwear"
+    },
+    {
+      "id": 24,
+      "name": "Tank Top",
+      "price": 14.99,
+      "description": "Sleeveless tank top for warm weather",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23F87171' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ETank+Top%3C/text%3E%3C/svg%3E",
+      "stock": 70,
+      "category": "Clothing"
+    },
+    {
+      "id": 25,
+      "name": "Slip-on Loafers",
+      "price": 104.99,
+      "description": "Comfortable slip-on loafers with soft lining",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23A0522D' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESlip-on+Loafers%3C/text%3E%3C/svg%3E",
+      "stock": 20,
+      "category": "Footwear"
+    },
+    {
+      "id": 26,
+      "name": "Rain Jacket",
+      "price": 79.99,
+      "description": "Waterproof rain jacket for wet weather",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%230EA5E9' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ERain+Jacket%3C/text%3E%3C/svg%3E",
+      "stock": 27,
+      "category": "Clothing"
+    },
+    {
+      "id": 27,
+      "name": "Snow Boots",
+      "price": 144.99,
+      "description": "Insulated snow boots for winter activities",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23E0E7FF' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESnow+Boots%3C/text%3E%3C/svg%3E",
+      "stock": 11,
+      "category": "Footwear"
+    },
+    {
+      "id": 28,
+      "name": "Thermal Undershirt",
+      "price": 39.99,
+      "description": "Warm thermal undershirt for layering",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23D97706' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EThermal+Undershirt%3C/text%3E%3C/svg%3E",
+      "stock": 48,
+      "category": "Clothing"
+    },
+    {
+      "id": 29,
+      "name": "Platform Sneakers",
+      "price": 84.99,
+      "description": "Trendy platform sneakers with elevated sole",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%2310B981' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPlatform+Sneakers%3C/text%3E%3C/svg%3E",
+      "stock": 23,
+      "category": "Footwear"
+    },
+    {
+      "id": 30,
+      "name": "Chinos Pants",
+      "price": 54.99,
+      "description": "Smart casual chinos pants in neutral colors",
+      "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%2364748B' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EChinos+Pants%3C/text%3E%3C/svg%3E",
+      "stock": 36,
+      "category": "Clothing"
     }
   ],
   "users": [
