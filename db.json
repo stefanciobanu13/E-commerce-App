@@ -1,0 +1,120 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic Cotton T-Shirt",
+      "price": 24.99,
+      "description": "Comfortable everyday cotton t-shirt available in multiple colors",
+      "image": "https://via.placeholder.com/300x200?text=T-Shirt",
+      "stock": 50,
+      "category": "Clothing"
+    },
+    {
+      "id": 2,
+      "name": "Denim Jeans",
+      "price": 59.99,
+      "description": "Classic blue denim jeans with perfect fit",
+      "image": "https://via.placeholder.com/300x200?text=Jeans",
+      "stock": 35,
+      "category": "Clothing"
+    },
+    {
+      "id": 3,
+      "name": "Winter Jacket",
+      "price": 129.99,
+      "description": "Warm and stylish winter jacket with insulation",
+      "image": "https://via.placeholder.com/300x200?text=Jacket",
+      "stock": 20,
+      "category": "Clothing"
+    },
+    {
+      "id": 4,
+      "name": "Sports Running Shoes",
+      "price": 89.99,
+      "description": "Lightweight running shoes with cushioning for comfort",
+      "image": "https://via.placeholder.com/300x200?text=Running+Shoes",
+      "stock": 25,
+      "category": "Footwear"
+    },
+    {
+      "id": 5,
+      "name": "Casual Sneakers",
+      "price": 74.99,
+      "description": "Trendy casual sneakers perfect for everyday wear",
+      "image": "https://via.placeholder.com/300x200?text=Sneakers",
+      "stock": 40,
+      "category": "Footwear"
+    },
+    {
+      "id": 6,
+      "name": "Formal Dress Shoes",
+      "price": 119.99,
+      "description": "Elegant leather dress shoes for professional occasions",
+      "image": "https://via.placeholder.com/300x200?text=Dress+Shoes",
+      "stock": 15,
+      "category": "Footwear"
+    },
+    {
+      "id": 7,
+      "name": "Cotton Hoodie",
+      "price": 54.99,
+      "description": "Cozy hooded sweatshirt in soft cotton blend",
+      "image": "https://via.placeholder.com/300x200?text=Hoodie",
+      "stock": 30,
+      "category": "Clothing"
+    },
+    {
+      "id": 8,
+      "name": "Comfortable Loafers",
+      "price": 99.99,
+      "description": "Slip-on loafers with premium leather construction",
+      "image": "https://via.placeholder.com/300x200?text=Loafers",
+      "stock": 18,
+      "category": "Footwear"
+    },
+    {
+      "id": 9,
+      "name": "Athletic Shorts",
+      "price": 34.99,
+      "description": "Lightweight athletic shorts for workouts and casual wear",
+      "image": "https://via.placeholder.com/300x200?text=Shorts",
+      "stock": 45,
+      "category": "Clothing"
+    },
+    {
+      "id": 10,
+      "name": "Hiking Boots",
+      "price": 139.99,
+      "description": "Durable waterproof hiking boots for outdoor adventures",
+      "image": "https://via.placeholder.com/300x200?text=Hiking+Boots",
+      "stock": 12,
+      "category": "Footwear"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "customer@example.com",
+      "password": "customer123",
+      "role": "customer"
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
