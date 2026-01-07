@@ -2,12 +2,19 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import pool, { initializeDatabase, seedDatabase } from './db.js';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 const app = express();
 const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
+// Serve frontend static files when available (production)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const clientDistPath = path.join(__dirname, '..', 'client', 'dist');
+app.use(express.static(clientDistPath));
 // Health check endpoint used by hosts for liveness/readiness probes
 app.get('/api/health', async (req, res) => {
   try {
@@ -16,6 +23,18 @@ app.get('/api/health', async (req, res) => {
   } catch (err) {
     res.status(500).json({ status: 'error', message: err.message });
   }
+});
+
+// If no API route matched and a client build exists, serve index.html for client-side routing
+app.get('*', (req, res, next) => {
+  // If the request looks like an API call, skip
+  if (req.path.startsWith('/api')) return next();
+  // Serve index.html if it exists
+  res.sendFile(path.join(clientDistPath, 'index.html'), (err) => {
+    if (err) {
+      next();
+    }
+  });
 });
 
 
