@@ -56,7 +56,10 @@ const AdminOrders = () => {
                   <p className="text-gray-600">Placed: {new Date(order.created_at).toLocaleString()}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold">Total: ${order.total.toFixed(2)}</p>
+                  {(() => {
+                    const total = typeof order.total === 'number' ? order.total : parseFloat(order.total) || 0;
+                    return <p className="font-semibold">Total: ${total.toFixed(2)}</p>;
+                  })()}
                   <select value={order.status} onChange={(e) => updateStatus(order.id, e.target.value)} className="mt-2 px-3 py-2 rounded-lg border">
                     <option value="pending">pending</option>
                     <option value="shipped">shipped</option>
@@ -68,7 +71,7 @@ const AdminOrders = () => {
               <div className="mt-4">
                 <p className="font-semibold">Items:</p>
                 <ul className="list-disc ml-6 mt-2">
-                  {order.items.map((it, idx) => (
+                  {(order.items || []).map((it, idx) => (
                     <li key={idx}>{`Product ${it.productId} — qty ${it.quantity}`}</li>
                   ))}
                 </ul>
