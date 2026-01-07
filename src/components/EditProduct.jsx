@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAlert } from '../contexts/AlertContext.jsx';
 
 const EditProduct = () => {
   const [form, setForm] = useState({
@@ -53,6 +54,8 @@ const EditProduct = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const { showAlert } = useAlert();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
@@ -72,10 +75,10 @@ const EditProduct = () => {
     });
 
     if (res.ok) {
-      alert('Product updated');
+      showAlert('Product updated', 'success');
       navigate('/');
     } else {
-      alert('Failed to update product');
+      showAlert('Failed to update product', 'error');
     }
   };
 

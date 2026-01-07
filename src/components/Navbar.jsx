@@ -28,10 +28,10 @@ const Navbar = () => {
           </NavLink>
           {user?.role === 'admin' && (
             <NavLink 
-              to="/add-product" 
+              to="/admin" 
               className="hover:scale-110 transition-transform duration-300 font-semibold text-white drop-shadow-md hover:text-blue-100"
             >
-              ➕ Add Product
+              ⚙️ Admin
             </NavLink>
           )}
           {user ? (

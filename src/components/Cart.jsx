@@ -1,11 +1,79 @@
 import { useCart } from '../contexts/CartContext';
+import { useAlert } from '../contexts/AlertContext.jsx';
+import { useAuth } from '../contexts/AuthContext.jsx';
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, getTotal, clearCart } = useCart();
+  const { showAlert } = useAlert();
+  const { user } = useAuth();
 
-  const handleCheckout = () => {
-    alert(`Checkout successful! Total: $${getTotal().toFixed(2)}`);
-    clearCart();
+  const handleCheckout = async () => {
+    if (!user) {
+      showAlert('You must be logged in to checkout', 'error');
+      return;
+    }
+
+    const token = localStorage.getItem('token');
+    const items = cart.map((item) => ({ productId: item.id, quantity: item.quantity, price: item.price }));
+    const total = getTotal();
+
+    const makeRequest = async (url) => {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ items, total }),
+      });
+
+      // If response is not JSON, return an object indicating that
+      const ct = res.headers.get('content-type') || '';
+      if (!ct.includes('application/json')) {
+        // Read text to include in error message for debugging
+        const text = await res.text();
+        throw new Error(`Server returned non-JSON response (content-type: ${ct}). Response starts with: ${text.slice(0,140)}`);
+      }
+      const data = await res.json();
+      return { res, data };
+    };
+
+    try {
+      // First try proxied URL (works in dev with Vite proxy)
+      let result;
+      try {
+        result = await makeRequest('/api/orders');
+      } catch (err) {
+        // If proxied call failed due to HTML/index response, try backend absolute URL
+        if (err.message && err.message.includes('<!DOCTYPE')) {
+          // Try backend directly
+          result = await makeRequest('http://localhost:3001/api/orders');
+        } else {
+          // Other parse / network errors: try direct backend once
+          try {
+            result = await makeRequest('http://localhost:3001/api/orders');
+          } catch (err2) {
+            throw err2;
+          }
+        }
+      }
+
+      const { res, data } = result;
+      if (res.ok) {
+        showAlert('Order placed successfully', 'success');
+        clearCart();
+      } else {
+        showAlert(data.message || 'Failed to create order', 'error');
+      }
+    } catch (err) {
+      // If server responded with HTML, suggest starting backend
+      const isHtml = err.message && err.message.includes('<!DOCTYPE');
+      if (isHtml) {
+        showAlert('Server did not return JSON. Is the backend running on port 3001?', 'error');
+      } else {
+        showAlert(err.message || 'Failed to create order', 'error');
+      }
+    }
   };
 
   return (
@@ -40,7 +108,8 @@ const Cart = () => {
                   <span className="px-4 font-bold text-gray-700 min-w-[40px] text-center">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    className="px-3 py-1 bg-green-400 text-white rounded font-bold hover:bg-green-500 transition-colors"
+                    className="px-3 py-1 bg-green-400 text-white rounded font-bold hover:bg-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={item.quantity >= item.stock}
                   >
                     +
                   </button>
@@ -62,7 +131,7 @@ const Cart = () => {
                 onClick={handleCheckout}
                 className="bg-gradient-to-r from-green-400 to-green-500 text-white px-8 py-3 rounded-lg font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                ✓ Proceed to Checkout
+                ✓ Place order
               </button>
             </div>
           </div>

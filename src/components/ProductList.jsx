@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
+import { useAlert } from '../contexts/AlertContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
@@ -42,13 +43,11 @@ const ProductList = () => {
   const categories = [...new Set(allProducts.map(p => p.category))];
 
   const handleAddToCart = (product) => {
-    try {
-      addToCart(product);
-      alert('Added to cart');
-    } catch (error) {
-      alert(error.message);
-    }
+    // addToCart will show an in-app alert if stock is exceeded or on success
+    addToCart(product);
   };
+
+  const { showAlert } = useAlert();
 
   const handleDelete = async (id) => {
     if (!confirm('Delete product?')) return;
@@ -61,8 +60,9 @@ const ProductList = () => {
     });
     if (res.ok) {
       setAllProducts(allProducts.filter(p => p.id !== id));
+      showAlert('Product deleted', 'success');
     } else {
-      alert('Failed to delete');
+      showAlert('Failed to delete', 'error');
     }
   };
 
@@ -121,13 +121,13 @@ const ProductList = () => {
             <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
             <div className="flex items-center justify-between mb-4">
               <p className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">${product.price}</p>
-              <p className="text-sm font-semibold text-cyan-600 bg-cyan-100 px-3 py-1 rounded-full">Stock: {product.stock}</p>
+              <p className="text-sm font-semibold text-cyan-600 bg-cyan-100 px-3 py-1 rounded-full">{product.stock > 0 ? 'In stock' : 'Out of stock'}</p>
             </div>
             <div className="flex gap-2 mt-4">
               <button
                 onClick={() => handleAddToCart(product)}
                 className="btn-primary flex-1 px-4 py-2 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
-                disabled={!user || user.role !== 'customer'}
+                disabled={!user || user.role !== 'customer' || product.stock <= 0}
               >
                 Add to Cart
               </button>

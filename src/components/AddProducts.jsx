@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from '../contexts/AlertContext.jsx';
 
 const AddProducts = () => {
   const [form, setForm] = useState({
@@ -33,6 +34,8 @@ const AddProducts = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const { showAlert } = useAlert();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
@@ -52,10 +55,10 @@ const AddProducts = () => {
     });
 
     if (res.ok) {
-      alert('Product added');
+      showAlert('Product added', 'success');
       navigate('/');
     } else {
-      alert('Failed to add product');
+      showAlert('Failed to add product', 'error');
     }
   };
 
