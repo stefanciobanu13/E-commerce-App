@@ -6,7 +6,7 @@
       "price": 24.99,
       "description": "Comfortable everyday cotton t-shirt available in multiple colors",
       "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%234A90E2' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3ET-Shirt%3C/text%3E%3C/svg%3E",
-      "stock": 3,
+      "stock": 0,
       "category": "Clothing"
     },
     {
@@ -15,7 +15,7 @@
       "price": 59.99,
       "description": "Classic blue denim jeans with perfect fit",
       "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%231F4B8C' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EDenim+Jeans%3C/text%3E%3C/svg%3E",
-      "stock": 33,
+      "stock": 26,
       "category": "Clothing"
     },
     {
@@ -24,7 +24,7 @@
       "price": 129.99,
       "description": "Warm and stylish winter jacket with insulation",
       "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23333333' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EWinter+Jacket%3C/text%3E%3C/svg%3E",
-      "stock": 20,
+      "stock": 18,
       "category": "Clothing"
     },
     {
@@ -348,6 +348,39 @@
       "total": 59.99,
       "status": "pending",
       "createdAt": "2026-01-07T15:11:14.398Z"
+    },
+    {
+      "id": 1767802608566,
+      "userId": 2,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 3,
+          "price": 24.99
+        }
+      ],
+      "total": 74.97,
+      "status": "pending",
+      "createdAt": "2026-01-07T16:16:48.566Z"
+    },
+    {
+      "id": 1767802693455,
+      "userId": 2,
+      "items": [
+        {
+          "productId": 3,
+          "quantity": 2,
+          "price": 129.99
+        },
+        {
+          "productId": 2,
+          "quantity": 7,
+          "price": 59.99
+        }
+      ],
+      "total": 679.9100000000001,
+      "status": "pending",
+      "createdAt": "2026-01-07T16:18:13.455Z"
     }
   ]
 }
