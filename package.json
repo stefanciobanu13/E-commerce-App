@@ -1,37 +1,21 @@
 {
-  "name": "y",
+  "name": "e-commerce-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Full-stack e-commerce application with React frontend and Express/PostgreSQL backend",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "node server.js"
-  },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "cors": "^2.8.5",
-    "express": "^5.2.1",
-    "json-server": "^1.0.0-beta.3",
-    "json-server-auth": "^2.1.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.11.0"
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "autoprefixer": "^10.4.23",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18",
-    "vite": "^7.2.4"
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
