@@ -165,7 +165,17 @@ app.get('/api/orders', authenticateToken, authorizeAdmin, async (req, res) => {
       GROUP BY o.id
       ORDER BY o.created_at DESC
     `);
-    res.json(result.rows);
+    // Normalize numeric fields that may come back as strings (DECIMAL)
+    const normalized = result.rows.map((r) => ({
+      ...r,
+      total: r.total !== null ? parseFloat(r.total) : 0,
+      items: (r.items || []).map((it) => ({
+        ...it,
+        price: it.price !== null ? parseFloat(it.price) : 0,
+        quantity: it.quantity !== null ? Number(it.quantity) : it.quantity,
+      })),
+    }));
+    res.json(normalized);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -184,7 +194,17 @@ app.get('/api/orders/:id', authenticateToken, authorizeAdmin, async (req, res) =
     if (result.rows.length === 0) {
       return res.status(404).json({ message: 'Order not found' });
     }
-    res.json(result.rows[0]);
+    const r = result.rows[0];
+    const normalized = {
+      ...r,
+      total: r.total !== null ? parseFloat(r.total) : 0,
+      items: (r.items || []).map((it) => ({
+        ...it,
+        price: it.price !== null ? parseFloat(it.price) : 0,
+        quantity: it.quantity !== null ? Number(it.quantity) : it.quantity,
+      })),
+    };
+    res.json(normalized);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -232,8 +252,12 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
 
     await client.query('COMMIT');
 
-    const newOrder = await pool.query('SELECT * FROM orders WHERE id = $1', [orderId]);
-    res.status(201).json(newOrder.rows[0]);
+    const newOrderRes = await pool.query('SELECT * FROM orders WHERE id = $1', [orderId]);
+    const newOrder = newOrderRes.rows[0];
+    res.status(201).json({
+      ...newOrder,
+      total: newOrder.total !== null ? parseFloat(newOrder.total) : 0,
+    });
   } catch (err) {
     await client.query('ROLLBACK');
     res.status(500).json({ message: err.message });
