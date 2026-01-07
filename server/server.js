@@ -1,9 +1,11 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import pool, { initializeDatabase, seedDatabase } from './db.js';
 
 const app = express();
-app.use(cors());
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
 
@@ -242,8 +244,9 @@ const startServer = async () => {
   try {
     await initializeDatabase();
     await seedDatabase();
-    app.listen(3001, () => {
-      console.log('Server running on port 3001');
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (err) {
     console.error('Failed to start server:', err);

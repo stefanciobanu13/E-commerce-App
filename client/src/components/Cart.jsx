@@ -17,8 +17,11 @@ const Cart = () => {
     const items = cart.map((item) => ({ productId: item.id, quantity: item.quantity, price: item.price }));
     const total = getTotal();
 
+    const API_BASE = import.meta.env.VITE_API_URL || '';
+
     const makeRequest = async (url) => {
-      const res = await fetch(url, {
+      const target = url.startsWith('http') ? url : `${API_BASE}${url}`;
+      const res = await fetch(target, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,21 +41,7 @@ const Cart = () => {
     };
 
     try {
-      let result;
-      try {
-        result = await makeRequest('/api/orders');
-      } catch (err) {
-        if (err.message && err.message.includes('<!DOCTYPE')) {
-          result = await makeRequest('http://localhost:3001/api/orders');
-        } else {
-          try {
-            result = await makeRequest('http://localhost:3001/api/orders');
-          } catch (err2) {
-            throw err2;
-          }
-        }
-      }
-
+      const result = await makeRequest('/api/orders');
       const { res, data } = result;
       if (res.ok) {
         showAlert('Order placed successfully', 'success');
@@ -61,12 +50,7 @@ const Cart = () => {
         showAlert(data.message || 'Failed to create order', 'error');
       }
     } catch (err) {
-      const isHtml = err.message && err.message.includes('<!DOCTYPE');
-      if (isHtml) {
-        showAlert('Server did not return JSON. Is the backend running on port 3001?', 'error');
-      } else {
-        showAlert(err.message || 'Failed to create order', 'error');
-      }
+      showAlert(err.message || 'Failed to create order', 'error');
     }
   };
 
