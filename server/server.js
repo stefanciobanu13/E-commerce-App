@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ===== MIDDLEWARE =====
+
 const authenticateToken = (req, res, next) => {
   const auth = req.headers.authorization;
   if (!auth || !auth.startsWith('Bearer ')) {
@@ -30,7 +30,7 @@ const authorizeAdmin = async (req, res, next) => {
   }
 };
 
-// ===== AUTH ENDPOINTS =====
+//Endpoints for authentication
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -60,7 +60,7 @@ app.get('/api/me', authenticateToken, async (req, res) => {
   }
 });
 
-// ===== PRODUCTS ENDPOINTS =====
+// Edpoints for products
 app.get('/api/products', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM products ORDER BY id');
@@ -123,7 +123,7 @@ app.delete('/api/products/:id', authenticateToken, authorizeAdmin, async (req, r
   }
 });
 
-// ===== ORDERS ENDPOINTS =====
+// Endpoints for orders
 app.get('/api/orders', authenticateToken, authorizeAdmin, async (req, res) => {
   try {
     const result = await pool.query(`
@@ -170,7 +170,7 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
 
     await client.query('BEGIN');
 
-    // Validate stock
+    // Validation for stock 
     for (const item of items) {
       const result = await client.query('SELECT stock, name FROM products WHERE id = $1', [item.productId]);
       if (result.rows.length === 0) {
@@ -183,7 +183,7 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
       }
     }
 
-    // Reduce stock and create order
+    // Adjust the stock and create the order
     const orderResult = await client.query(
       'INSERT INTO orders (user_id, total, status) VALUES ($1, $2, $3) RETURNING id',
       [req.userId, total, 'pending']
@@ -191,10 +191,8 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
     const orderId = orderResult.rows[0].id;
 
     for (const item of items) {
-      // Reduce stock
       await client.query('UPDATE products SET stock = stock - $1 WHERE id = $2', [item.quantity, item.productId]);
 
-      // Add order item
       await client.query(
         'INSERT INTO order_items (order_id, product_id, quantity, price) VALUES ($1, $2, $3, $4)',
         [orderId, item.productId, item.quantity, item.price]
@@ -229,7 +227,7 @@ app.put('/api/orders/:id', authenticateToken, authorizeAdmin, async (req, res) =
   }
 });
 
-// ===== USERS ENDPOINTS (admin only) =====
+// Endpoints for the users table
 app.get('/api/users', authenticateToken, authorizeAdmin, async (req, res) => {
   try {
     const result = await pool.query('SELECT id, email, role FROM users');
@@ -239,7 +237,7 @@ app.get('/api/users', authenticateToken, authorizeAdmin, async (req, res) => {
   }
 });
 
-// ===== STARTUP =====
+// start up run 
 const startServer = async () => {
   try {
     await initializeDatabase();

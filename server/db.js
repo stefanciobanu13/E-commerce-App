@@ -9,13 +9,14 @@ const pool = new Pool({
   database: process.env.DB_NAME || 'ecommerce_db',
 });
 
-// Initialize database schema on startup
+// Initialize database schema
 export const initializeDatabase = async () => {
   try {
     console.log('Starting database initialization...');
     const client = await pool.connect();
+         
+    // Create the tables
     try {
-      // Create users table
       await client.query(`
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -26,7 +27,6 @@ export const initializeDatabase = async () => {
       )
     `);
 
-    // Create products table
     await client.query(`
       CREATE TABLE IF NOT EXISTS products (
         id SERIAL PRIMARY KEY,
@@ -40,7 +40,6 @@ export const initializeDatabase = async () => {
       )
     `);
 
-    // Create carts table
     await client.query(`
       CREATE TABLE IF NOT EXISTS carts (
         id SERIAL PRIMARY KEY,
@@ -49,7 +48,6 @@ export const initializeDatabase = async () => {
       )
     `);
 
-    // Create cart_items table
     await client.query(`
       CREATE TABLE IF NOT EXISTS cart_items (
         id SERIAL PRIMARY KEY,
@@ -60,7 +58,6 @@ export const initializeDatabase = async () => {
       )
     `);
 
-    // Create orders table
     await client.query(`
       CREATE TABLE IF NOT EXISTS orders (
         id SERIAL PRIMARY KEY,
@@ -71,7 +68,6 @@ export const initializeDatabase = async () => {
       )
     `);
 
-    // Create order_items table
     await client.query(`
       CREATE TABLE IF NOT EXISTS order_items (
         id SERIAL PRIMARY KEY,
@@ -95,18 +91,17 @@ export const initializeDatabase = async () => {
   }
 };
 
-// Seed initial data
+// Submit some initial data
 export const seedDatabase = async () => {
   const client = await pool.connect();
   try {
-    // Check if users exist
     const usersResult = await client.query('SELECT COUNT(*) FROM users');
     if (parseInt(usersResult.rows[0].count) > 0) {
       console.log('Database already seeded');
       return;
     }
 
-    // Insert seed users
+    // Insert some default users
     await client.query(
       `INSERT INTO users (email, password, role) VALUES 
        ('admin@example.com', 'admin123', 'admin'),

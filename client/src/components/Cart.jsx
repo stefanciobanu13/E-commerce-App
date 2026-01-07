@@ -30,7 +30,6 @@ const Cart = () => {
       // If response is not JSON, return an object indicating that
       const ct = res.headers.get('content-type') || '';
       if (!ct.includes('application/json')) {
-        // Read text to include in error message for debugging
         const text = await res.text();
         throw new Error(`Server returned non-JSON response (content-type: ${ct}). Response starts with: ${text.slice(0,140)}`);
       }
@@ -39,17 +38,13 @@ const Cart = () => {
     };
 
     try {
-      // First try proxied URL (works in dev with Vite proxy)
       let result;
       try {
         result = await makeRequest('/api/orders');
       } catch (err) {
-        // If proxied call failed due to HTML/index response, try backend absolute URL
         if (err.message && err.message.includes('<!DOCTYPE')) {
-          // Try backend directly
           result = await makeRequest('http://localhost:3001/api/orders');
         } else {
-          // Other parse / network errors: try direct backend once
           try {
             result = await makeRequest('http://localhost:3001/api/orders');
           } catch (err2) {
@@ -66,7 +61,6 @@ const Cart = () => {
         showAlert(data.message || 'Failed to create order', 'error');
       }
     } catch (err) {
-      // If server responded with HTML, suggest starting backend
       const isHtml = err.message && err.message.includes('<!DOCTYPE');
       if (isHtml) {
         showAlert('Server did not return JSON. Is the backend running on port 3001?', 'error');
