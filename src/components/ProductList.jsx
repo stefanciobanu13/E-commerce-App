@@ -66,25 +66,25 @@ const ProductList = () => {
     }
   };
 
-  if (loading) return <div className="text-center py-8">Loading...</div>;
+  if (loading) return <div className="text-center py-8 text-2xl text-blue-400 font-semibold"><span className="animate-pulse">Loading...</span></div>;
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Products</h1>
+    <div className="container mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Our Collection</h1>
       
       {/* Filters */}
-      <div className="mb-4 flex flex-wrap gap-4">
+      <div className="mb-8 flex flex-wrap gap-4 bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl shadow-md">
         <input
           type="text"
           placeholder="Search by name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="p-2 border rounded"
+          className="flex-1 min-w-[200px] px-4 py-3 border-2 border-cyan-200 rounded-lg focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 transition-all input-field"
         />
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="p-2 border rounded"
+          className="px-4 py-3 border-2 border-cyan-200 rounded-lg focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 transition-all input-field"
         >
           <option value="">All Categories</option>
           {categories.map(cat => (
@@ -96,33 +96,37 @@ const ProductList = () => {
           placeholder="Min Price"
           value={minPrice}
           onChange={(e) => setMinPrice(e.target.value)}
-          className="p-2 border rounded"
+          className="px-4 py-3 border-2 border-cyan-200 rounded-lg focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 transition-all input-field"
         />
         <input
           type="number"
           placeholder="Max Price"
           value={maxPrice}
           onChange={(e) => setMaxPrice(e.target.value)}
-          className="p-2 border rounded"
+          className="px-4 py-3 border-2 border-cyan-200 rounded-lg focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 transition-all input-field"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {paginatedProducts.map((product) => (
-          <div key={product.id} className="border p-4 rounded shadow">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-48 object-cover mb-2"
-            />
-            <h2 className="text-xl font-semibold">{product.name}</h2>
-            <p className="text-gray-600">{product.description}</p>
-            <p className="text-lg font-bold">${product.price}</p>
-            <p className="text-sm">Stock: {product.stock}</p>
-            <div className="flex gap-2 mt-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {paginatedProducts.map((product, index) => (
+          <div key={product.id} className="product-card border-2 border-cyan-100 p-6 rounded-xl bg-white overflow-hidden" style={{ animationDelay: `${index * 0.05}s` }}>
+            <div className="relative overflow-hidden rounded-lg mb-4 h-48 bg-gradient-to-br from-cyan-100 to-blue-100">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{product.name}</h2>
+            <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
+            <div className="flex items-center justify-between mb-4">
+              <p className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">${product.price}</p>
+              <p className="text-sm font-semibold text-cyan-600 bg-cyan-100 px-3 py-1 rounded-full">Stock: {product.stock}</p>
+            </div>
+            <div className="flex gap-2 mt-4">
               <button
                 onClick={() => handleAddToCart(product)}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex-1"
+                className="btn-primary flex-1 px-4 py-2 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
                 disabled={!user || user.role !== 'customer'}
               >
                 Add to Cart
@@ -131,13 +135,13 @@ const ProductList = () => {
                 <>
                   <button
                     onClick={() => navigate(`/edit-product/${product.id}`)}
-                    className="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700"
+                    className="bg-amber-400 text-gray-800 px-3 py-2 rounded-lg font-semibold hover:bg-amber-500 hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(product.id)}
-                    className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                    className="bg-red-400 text-white px-3 py-2 rounded-lg font-semibold hover:bg-red-500 hover:shadow-lg transition-all duration-300 hover:scale-105"
                   >
                     Delete
                   </button>
@@ -150,21 +154,21 @@ const ProductList = () => {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="mt-4 flex justify-center gap-2">
+        <div className="mt-8 flex justify-center gap-4 items-center">
           <button
             onClick={() => setPage(page - 1)}
             disabled={page === 1}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            className="px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-400 text-white rounded-lg font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
           >
-            Prev
+            ← Prev
           </button>
-          <span className="px-4 py-2">Page {page} of {totalPages}</span>
+          <span className="px-6 py-3 font-bold text-lg text-gray-700 bg-gray-100 rounded-lg">Page <span className="text-cyan-500">{page}</span> of <span className="text-blue-500">{totalPages}</span></span>
           <button
             onClick={() => setPage(page + 1)}
             disabled={page === totalPages}
-            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+            className="px-6 py-3 bg-gradient-to-r from-cyan-400 to-blue-400 text-white rounded-lg font-semibold hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
           >
-            Next
+            Next →
           </button>
         </div>
       )}
