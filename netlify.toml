@@ -1,6 +1,7 @@
 [build]
-  command = "cd client && npm ci && npm run build"
+  command = "cd client && NPM_CONFIG_PRODUCTION=false npm ci && npm run build"
   publish = "client/dist"
 
 [context.production.environment]
   NODE_ENV = "production"
+  NPM_CONFIG_PRODUCTION = "false"
